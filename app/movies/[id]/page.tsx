@@ -20,7 +20,6 @@ export default async function MovieDetail({
   params: { id: string };
 }) {
   const { id } = await params;
-  const credits = await getMovie(id);
   return (
     <div>
       <Suspense fallback={<h1>Loading movie info</h1>}>
