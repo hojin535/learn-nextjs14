@@ -1,6 +1,7 @@
-import MovieVideos from "../../../../components/movie-videos";
-import MovieInfo, { getMovie } from "../../../../components/movie-info";
+import MovieVideos from "../../../components/movie-videos";
+import MovieInfo, { getMovie } from "../../../components/movie-info";
 import { Suspense } from "react";
+import MovieCredit from "../../../components/movie/credit/movie-credit";
 
 interface IParams {
   params: { id: string };
@@ -25,9 +26,9 @@ export default async function MovieDetail({
       <Suspense fallback={<h1>Loading movie info</h1>}>
         <MovieInfo id={id} />
       </Suspense>
-      {/*<Suspense fallback={<h1>Loading movie credit</h1>}>*/}
-      {/*  <MovieCredit id={id} />*/}
-      {/*</Suspense>*/}
+      <Suspense fallback={<h1>Loading movie credit</h1>}>
+        <MovieCredit id={id} />
+      </Suspense>
       <Suspense fallback={<h1>Loading movie video</h1>}>
         <MovieVideos id={id} />
       </Suspense>
